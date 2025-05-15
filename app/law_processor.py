@@ -396,7 +396,7 @@ def group_locations(loc_list):
     formatted_locs = [format_location(loc) for loc in loc_list]
     
     # 조항호목 파싱 함수 (모든 정렬 기준 추출)
-def parse_location(loc):
+    def parse_location(loc):
         # 조번호 (정수로 변환)
         article_match = re.search(r'제(\d+)조(?:의(\d+))?', loc)
         article_num = int(article_match.group(1)) if article_match else 0
