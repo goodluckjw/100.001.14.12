@@ -6,6 +6,8 @@ import os
 import unicodedata
 from collections import defaultdict
 
+# line321 규칙15근처 중복임. 이 버전은 에러나옴.
+
 OC = os.getenv("OC", "chetera")
 BASE = "http://www.law.go.kr"
 
