@@ -102,7 +102,7 @@ def has_rieul_batchim(word):
         jongseong = (char_code - 0xAC00) % 28
         return jongseong == 8
     return False
-
+    
 def extract_article_num(loc):
     """조번호를 추출하여 정수로 변환하는 함수"""
     article_match = re.search(r'제(\d+)조(?:의(\d+))?', loc)
@@ -195,7 +195,7 @@ def apply_josa_rule(orig, replaced, josa):
             if not replaced_has_batchim or replaced_has_rieul:  # 규칙 0-2-1, 0-2-2-1
                 return f'"{orig}"을 "{replaced}"로 한다.'
             else:  # 규칙 0-2-2-2: B의 받침이 ㄹ이 아닌 경우
-                return f'"{orig}"을 "{replaced}"으로로 한다.'
+                return f'"{orig}"을 "{replaced}"으로 한다.'
     
     # 따옴표가 있는 경우 조사에서 따옴표 제거
     clean_josa = josa
@@ -307,7 +307,7 @@ def apply_josa_rule(orig, replaced, josa):
     
     elif clean_josa == "란":  # 규칙 13
         if replaced_has_batchim:  # 규칙 13-1
-            quote_prefix = josa[0] if josa.startswith('"') else ""
+            quote_prefix = '"' if josa.startswith('"') else ""
             return f'"{orig}{josa}"을 "{replaced}이{quote_prefix}란"으로 한다.'
         else:  # 규칙 13-2
             return f'"{orig}"를 "{replaced}"로 한다.'
@@ -319,7 +319,7 @@ def apply_josa_rule(orig, replaced, josa):
             else:  # 규칙 14-1-2
                 return f'"{orig}"을 "{replaced}"으로 한다.'
         else:  # 규칙 14-2
-            quote_prefix = josa[0] if josa.startswith('"') else ""
+            quote_prefix = '"' if josa.startswith('"') else ""
             return f'"{orig}{josa}"을 "{replaced}{quote_prefix}란"으로 한다.'
     
     elif clean_josa == "로서" or clean_josa == "로써":  # 규칙 15
@@ -351,7 +351,7 @@ def apply_josa_rule(orig, replaced, josa):
     
     elif clean_josa == "라":  # 규칙 17
         if replaced_has_batchim:  # 규칙 17-1
-            quote_prefix = josa[0] if josa.startswith('"') else ""
+            quote_prefix = '"' if josa.startswith('"') else ""
             return f'"{orig}{josa}"를 "{replaced}이{quote_prefix}라"로 한다.'
         else:  # 규칙 17-2
             return f'"{orig}"를 "{replaced}"로 한다.'
@@ -363,7 +363,7 @@ def apply_josa_rule(orig, replaced, josa):
             else:  # 규칙 18-1-2
                 return f'"{orig}"을 "{replaced}"으로 한다.'
         else:  # 규칙 18-2
-            quote_prefix = josa[0] if josa.startswith('"') else ""
+            quote_prefix = '"' if josa.startswith('"') else ""
             return f'"{orig}{josa}"를 "{replaced}{quote_prefix}라"로 한다.'
     
     # 기본 출력 형식
