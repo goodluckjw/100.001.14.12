@@ -628,7 +628,7 @@ def run_amendment_logic(find_word, replace_word):
                     location_suffix = " 제목"
                 
                 # 제목 검색어만 처리하도록 수정
-                 if 제목에_검색어_있음:
+                if 제목에_검색어_있음:
                       tokens = re.findall(r'[가-힣A-Za-z0-9]+', 조문제목)
                       for token in tokens:
                           if find_word in token:
@@ -637,7 +637,7 @@ def run_amendment_logic(find_word, replace_word):
                                location = f"{조문식별자} 제목"
                                chunk_map[(chunk, replaced, josa, suffix)].append(location)
                     # 제목에 검색어가 있는 경우 본문은 처리하지 않음
-                 elif 본문에_검색어_있음:  # elif로 변경하여 중복 검색 방지
+                elif 본문에_검색어_있음:  # elif로 변경하여 중복 검색 방지
                      print(f"매치 발견: {조문식별자}")
                      tokens = re.findall(r'[가-힣A-Za-z0-9]+', 조문내용)
                      for token in tokens:
