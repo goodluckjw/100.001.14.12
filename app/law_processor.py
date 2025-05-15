@@ -10,7 +10,7 @@ OC = os.getenv("OC", "chetera")
 BASE = "http://www.law.go.kr"
 
 def highlight(text, query):
-    """검색어를 HTML로 하이라이트 처리해주는 함수"""
+    """검색어를 HTML로 하이라이트 처리해주는 함수""" 
     if not query or not text:
         return text
     # 정규식 특수문자 이스케이프
@@ -752,13 +752,13 @@ def run_amendment_logic(find_word, replace_word):
             prefix = chr(9312 + 출력된_법률수 - 1) if 출력된_법률수 <= 20 else f'({출력된_법률수})'
             
             # HTML 형식으로 출력 (br 태그 사용)
-            amendment = f"{prefix} {law_name} 일부를 다음과 같이 개정한다.<br><br>"
+            amendment = f"{prefix} {law_name} 일부를 다음과 같이 개정한다.<br>"
             
             # 각 규칙마다 br 태그로 줄바꿈 추가
             for i, rule in enumerate(consolidated_rules):
                 amendment += rule
                 if i < len(consolidated_rules) - 1:  # 마지막 규칙이 아니면 줄바꿈 두 번
-                    amendment += "<br><br>"
+                    amendment += "<br>"
                 else:
                     amendment += "<br>"  # 마지막 규칙은 줄바꿈 한 번
             
